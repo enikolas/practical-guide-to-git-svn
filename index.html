@@ -57,7 +57,7 @@
 				</section>
 
 				<section data-background="https://i.giphy.com/12XMGIWtrHBl5e.gif">
-					<p>Your customer still uses SVN...</p>
+					<p>Your project still uses SVN...</p>
 				</section>
 
 				<section>
@@ -84,7 +84,95 @@
 
 				<section>
 					<h2>GIT-SVN</h2>
-					<img data-src="img/GitSvnFlow.svg" alt="Describes a simple SVN workflow." />
+					<img data-src="img/GitSvnFlow.svg" alt="Describes a simple GIT-SVN workflow." />
+				</section>
+
+				<section>
+					<h2>Remote commands comparison</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Git</th>
+								<th>Git-svn</th>
+								<th>Svn</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>git clone REPO_URL</td>
+								<td>git svn clone REPO_URL</td>
+								<td>svn checkout REPO_URL</td>
+							</tr>
+							<tr>
+								<td>git pull origin master</td>
+								<td>git svn rebase</td>
+								<td>svn update</td>
+							</tr>
+							<tr>
+								<td>git push origin master</td>
+								<td>git svn dcommit</td>
+								<td>svn commit</td>
+							</tr>
+						</tbody>
+					</table>
+				</section>
+
+				<section>
+					<p>Hey, you have only showed me two commands, where is all other awesome local git commands?</p>
+				</section>
+
+				<section>
+					<h2>Good question!</h2>
+					<p>As I have described before, git-svn creates a local git server.</p>
+				</section>
+
+				<section>
+					<p>Which means, you have access to all local git commands</p>
+					<ul>
+						<li class="fragment">git commit</li>
+						<li class="fragment">git stash</li>
+						<li class="fragment">git checkout -b localBranchName</li>
+						<li class="fragment">git log</li>
+						<li class="fragment">git cherry-pick commit-id</li>
+						<li class="fragment">...</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Pros*</h2>
+					<ul>
+						<li class="fragment">Better merge strategies (goodbye odd conflicts)</li>
+						<li class="fragment">Stop the current task, to fix a production bug, with no code loses</li>
+						<li class="fragment">Move a single commit all over around branches (cherry-pick 😍)</li>
+						<li class="fragment">Offline access to commit logs<span class="fragment">, or blame tools (😈)</span></li>
+						<li class="fragment">Git commands for those of you who are familiar with that</li>
+					</ul>
+					<p><small>* In my humble opinion...</small></p>
+				</section>
+
+				<section>
+					<h2>Cons*</h2>
+					<ul>
+						<li class="fragment">Some workflows act different than a pure GIT environment</li>
+						<li class="fragment">Some other workflows must be <span class="fragment highlight-red">avoided</span> at all cost!</li>
+						<li class="fragment">Long time to checkout the entire code base for the first time</li>
+						<li class="fragment">Poorly documented in the internet</li>
+						<li class="fragment">No GUI interface (for those of you who are afraid of the terminal)</li>
+					</ul>
+					<p><small>* In my humble opinion...</small></p>
+				</section>
+
+				<section>
+					<h2>😴😴😴😴😴😴</h2>
+					<p class="fragment">Sorry, but wasn't this a practical guide? 🤓</p>
+				</section>
+
+				<section data-background="https://i.giphy.com/l0MYt5jPR6QX5pnqM.gif">
+					<h2>It's time for...</h2>
+				</section>
+
+				<section data-background="https://i.giphy.com/yoJC2GnSClbPOkV0eA.gif">
+					<h2>The practical part</h2>
 				</section>
 
 				<section>
