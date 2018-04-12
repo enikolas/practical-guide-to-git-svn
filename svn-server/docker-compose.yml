@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  svn-server:
+    image: marvambass/subversion
+    ports:
+      - "0.0.0.0:80:80"
+    volumes:
+      - ./data:/var/local/svn

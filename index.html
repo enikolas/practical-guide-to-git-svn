@@ -118,7 +118,7 @@
 				</section>
 
 				<section>
-					<p>Hey, you have only showed me two commands, where is all other awesome local git commands?</p>
+					<p>Hey, you have only showed me three commands, where is all other awesome local git commands?</p>
 				</section>
 
 				<section>
@@ -175,11 +175,319 @@
 					<h2>The practical part</h2>
 				</section>
 
-				<section>
-					<p>Still being written down.</p>
+        <section>
+					<h2>Initial Setup of SVN</h2>
 
-					<p><small>Go grab some coffe while the full presentation is not ready yet!!!</small></p>
+					<p>
+            For this guide, I'll be using a dockerised subversion server, so everyone could follow it in the same way.
+          </p>
+          <p>
+            For running the container, run the following commands in the root directory of this repo:
+          </p>
+
+          <pre><code data-trim contenteditable>
+$ cd ~/git/practical-guide-to-git-svn/svn-server
+$ docker-compose up
+          </code></pre>
 				</section>
+
+        <section>
+          <h2>Initial Setup of SVN</h2>
+
+          <p>Wait around 10min until the following command:</p>
+
+          <pre><code data-trim contenteditable>
+$ svn info http://localhost/svn/guideRepo
+          </code></pre>
+
+          <p>Ouputs something like this:</p>
+
+          <pre>
+Path: guideRepo
+URL: http://localhost/svn/guideRepo
+Relative URL: ^/
+Repository Root: http://localhost/svn/guideRepo
+Repository UUID: 484153bb-eef5-4e36-a9e2-d2a13b2eef05
+Revision: 0
+Node Kind: directory
+Last Changed Rev: 0
+Last Changed Date: 2018-04-12 16:00:01 +0000 (Thu, 12 Apr 2018)
+          </pre>
+        </section>
+
+        <section>
+					<h2>Initial Setup of SVN</h2>
+
+          <p>
+            Now, run the project setup script:
+          </p>
+
+          <pre><code data-trim contenteditable>
+$ cd ~/git/practical-guide-to-git-svn/svn-server
+$ sh svnProjectSetup.sh
+          </code></pre>
+
+          <p>
+            And now, you should have a basic project ready to follow this guide.
+          </p>
+        </section>
+        
+				<section>
+          <h2>Checkout the code</h2>
+          
+          <p>To checkout the code, go to a new terminal console, and run the following commands:</p>
+          
+          <pre><code data-trim contenteditable>
+$ cd ~/
+$ mkdir -p git
+$ cd git
+$ git svn clone http://localhost/svn/guideRepo \
+    -T trunk/myProject \
+    -b branches/myProject \
+    -t tags/myProject \
+    --no-minimize-url \
+    myProject
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Checkout the code</h2>
+          
+          <p>Which might output:</p>
+
+          <pre><code data-trim contenteditable>
+Initialized empty Git repository in /home/yourUser/git/myProject/.git/
+        A       README.md
+r2 = f911e8557fabd5b483785bc54186b9440164d9e9 (refs/remotes/origin/trunk)
+Checked out HEAD:
+  http://localhost/svn/guideRepo/trunk/myProject r2
+          </code></pre>
+        </section>
+        
+        <section>
+          <h2>Repository history</h2>
+
+          <pre><code data-trim contenteditable>
+$ cd ~/git/myProject
+$ git log
+commit f911e8557fabd5b483785bc54186b9440164d9e9
+Author: (no author) <(no author)@484153bb-eef5-4e36-a9e2-d2a13b2eef05>
+Date:   Thu Apr 12 16:02:49 2018 +0000
+
+    Project initial commit
+
+    git-svn-id: http://localhost/svn/guideRepo/trunk/myProject@2 484153bb-eef5-4e36-a9e2-d2a13b2eef05
+(END)
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Checking in changes locally</h2>
+
+          <pre><code data-trim contenteditable>
+$ echo 'Farewell, sir!' >> README.md
+$ cat README.md
+Hello World!
+Farewell, sir!
+$ git add README.md
+$ git commit -m "Add a new message to README.md"
+[master 76b7407] Add a new message to README.md
+ 1 file changed, 1 insertion(+)
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Adding new files</h2>
+
+          <pre><code data-trim contenteditable>
+$ echo '42' >> theAnswer.txt
+$ cat theAnswer.txt
+42
+$ git add theAnswer.txt
+$ git commit -m "Add a new file: theAnswer.txt"
+[master fabda6d] Add a new file: theAnswer.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 theAnswer.txt
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Checking out remote changes</h2>
+
+          <p>To simulate a remote commit, run the following commands:</p>
+
+          <pre><code data-trim contenteditable>
+$ cd ~/git/practical-guide-to-git-svn/svn-server
+$ sh simulateSvnCommit.sh
+A    guideRepo/tags
+A    guideRepo/trunk
+A    guideRepo/trunk/myProject
+A    guideRepo/branches
+A    guideRepo/trunk/myProject/README.md
+Checked out revision 2.
+Sending        trunk/myProject/README.md
+Transmitting file data .done
+Committing transaction...
+Committed revision 3.
+$ cd -
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Checking out remote changes</h2>
+
+          <p>Now, with the fake remote commit done, let's checkout the changes to our local git-svn repo:</p>
+
+          <pre><code data-trim contenteditable>
+$ git svn rebase
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Checking out remote changes</h2>
+
+          <pre><code data-trim contenteditable>
+$ git svn rebase
+M       README.md
+r3 = 90b3f0d899c0b4cea6ea49149f9bd53b8de85545 (refs/remotes/origin/trunk)
+First, rewinding head to replay your work on top of it...
+Applying: Add a new message to README.md
+Using index info to reconstruct a base tree...
+M       README.md
+Falling back to patching base and 3-way merge...
+Auto-merging README.md
+CONFLICT (content): Merge conflict in README.md
+error: Failed to merge in the changes.
+Patch failed at 0001 Add a new message to README.md
+The copy of the patch that failed is found in: .git/rebase-apply/patch
+
+When you have resolved this problem, run "git rebase --continue".
+If you prefer to skip this patch, run "git rebase --skip" instead.
+To check out the original branch and stop rebasing, run "git rebase --abort".
+
+rebase refs/remotes/origin/trunk: command returned error: 128
+          </code></pre>
+        </section>
+
+        <section>
+            <h2>Checking out remote changes</h2>
+
+            <p>Ok, now we got a conflict... How great.</p>
+
+            <p>😠😡</p>
+        </section>
+
+        <section>
+            <h2>Solving conflicts</h2>
+
+            <p>Let's take a look at the conflict, shall we?</p>
+
+            <pre><code data-trim contenteditable>
+$ git status
+rebase in progress; onto 90b3f0d
+You are currently rebasing branch 'master' on '90b3f0d'.
+  (fix conflicts and then run "git rebase --continue")
+  (use "git rebase --skip" to skip this patch)
+  (use "git rebase --abort" to check out the original branch)
+
+Unmerged paths:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+  (use "git add &lt;file&gt;..." to mark resolution)
+
+        both modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+            </code></pre>
+        </section>
+
+        <section>
+          <h2>Solving conflicts</h2>
+
+          <pre><code data-trim contenteditable>
+$ vim README.md
+Hello World!
+<<<<<<< 90b3f0d899c0b4cea6ea49149f9bd53b8de85545
+Conflict!!!
+=======
+Farewell, sir!
+>>>>>>> Add a new message to README.md
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Solving conflicts</h2>
+
+          <pre><code data-trim contenteditable>
+Hello World!
+Conflict!!!
+Farewell, sir!
+&lt;ESC&gt;:x
+$ git add README.md
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Solving conflicts</h2>
+
+          <pre><code data-trim contenteditable>
+$ git status
+rebase in progress; onto 90b3f0d
+You are currently rebasing branch 'master' on '90b3f0d'.
+  (all conflicts fixed: run "git rebase --continue")
+
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+        modified:   README.md
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Solving conflicts</h2>
+
+          <pre><code data-trim contenteditable>
+$ git rebase --continue
+Applying: Add a new message to README.md
+Applying: Add a new file: theAnswer.txt
+$ git status
+On branch master
+nothing to commit, working directory clean
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Checking in changes remotely</h2>
+
+          <p>The <code>git commit</code> only checks in the code locally. To push your changes to the remote server, you need to run:</p>
+
+          <pre><code data-trim contenteditable>
+$ git svn dcommit --dry-run
+Committing to http://localhost/svn/guideRepo/trunk/myProject ...
+diff-tree 761af6552886f0c72c4ac5f0713e665df5d98cd1~1 761af6552886f0c72c4ac5f0713e665df5d98cd1
+diff-tree 25887c98a3644b67786126cf1eeb75608a975dc6~1 25887c98a3644b67786126cf1eeb75608a975dc6
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Checking in changes remotely</h2>
+
+          <p>After checking if everything is OK, <span class="fragment highlight-red">and only then</span>, run the following command:</p>
+
+          <pre class="fragment"><code data-trim contenteditable>
+$ git svn dcommit
+Committing to http://localhost/svn/guideRepo/trunk/myProject ...
+        M       README.md
+Committed r4
+        M       README.md
+r4 = 2db09e835a5eb98919a92c57b297124bf3c7cfb5 (refs/remotes/origin/trunk)
+        A       theAnswer.txt
+Committed r5
+        A       theAnswer.txt
+r5 = 23e9b592037388774176dbd4c95f5d98c5162ba7 (refs/remotes/origin/trunk)
+No changes between 25887c98a3644b67786126cf1eeb75608a975dc6 and refs/remotes/origin/trunk
+Resetting to the latest refs/remotes/origin/trunk
+          </code></pre>
+        </section>
 			</div>
 		</div>
 
