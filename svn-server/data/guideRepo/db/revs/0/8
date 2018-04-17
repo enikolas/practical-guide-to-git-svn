@@ -1,0 +1,66 @@
+id: 1-2.0-8.r8/0
+type: dir
+pred: 1-2.0.r7/346
+count: 6
+text: 7 213 120 0 ac1ba9e32898c1ab59d5dc0ba092b890
+cpath: /branches/myProject/myFirstRemoteBranch
+copyfrom: 7 /trunk/myProject
+
+PLAIN
+K 19
+myFirstRemoteBranch
+V 16
+dir 1-2.0-8.r8/0
+END
+ENDREP
+id: 1-8.0.r8/247
+type: dir
+count: 0
+text: 8 183 51 0 2b5506bfdd0443c37a47fb70f918a6b3
+cpath: /branches/myProject
+copyroot: 0 /
+
+PLAIN
+K 9
+myProject
+V 16
+dir 1-8.0.r8/247
+END
+ENDREP
+id: 0-1.0.r8/428
+type: dir
+pred: 0-1.0.r1/0
+count: 1
+text: 8 375 40 0 92d4c7e3c09635a4a5835719068a9cf4
+cpath: /branches
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 16
+dir 0-1.0.r8/428
+K 4
+tags
+V 15
+dir 2-1.0.r1/66
+K 5
+trunk
+V 16
+dir 3-1.0.r7/544
+END
+ENDREP
+id: 0.0.r8/677
+type: dir
+pred: 0.0.r7/790
+count: 8
+text: 8 563 101 0 2cc810653192e9dbb92cfc10a9f41077
+cpath: /
+copyroot: 0 /
+
+_1.0.t7-8 add-dir false false /branches/myProject
+
+1-2._0.t7-8 add-dir false false /branches/myProject/myFirstRemoteBranch
+7 /trunk/myProject
+
+677 803
