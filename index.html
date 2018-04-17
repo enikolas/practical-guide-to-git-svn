@@ -42,20 +42,6 @@
 						<small>Created by <a href="http://github.com/enikolas">Everton Nikolas de Oliveira</a></small>
 					</p>
         </section>
-        
-        <section>
-					<p>
-            Feel free to consolidate any <strong>typos</strong> throughout the presentation.
-          </p>
-          
-          <p class="fragment">
-            But only provide them at the end<span class="fragment">, please!</span>
-          </p>
-          
-          <p class="fragment">
-            🙏🙏🙏
-          </p>
-				</section>
 
         <section>
           <p>
@@ -84,7 +70,8 @@
         <section>
           <p>But what is GIT-SVN?</p>
           <p class="fragment">What does it eat?</p>
-          <p class="fragment">Where does it leave?</p>
+          <p class="fragment">Where does it live?</p>
+          <p class="fragment">How does it reproduce?</p>
         </section>
 
         <section>
@@ -156,7 +143,7 @@
           <h2>Pros*</h2>
           <ul>
             <li class="fragment">Better merge strategies (goodbye odd conflicts)</li>
-            <li class="fragment">Stop the current task, to fix a production bug, with no code loses</li>
+            <li class="fragment">Stop the current task, to fix a production bug, with no code losses</li>
             <li class="fragment">Move a single commit all over around branches (cherry-pick 😍)</li>
             <li class="fragment">Offline access to commit logs<span class="fragment">, or blame tools (😈)</span></li>
             <li class="fragment">Git commands for those of you who are familiar with that</li>
@@ -171,7 +158,7 @@
             <li class="fragment">Some other workflows must be <span class="fragment highlight-red">avoided</span> at all cost!</li>
             <li class="fragment">Long time to checkout the entire code base for the first time</li>
             <li class="fragment">Poorly documented in the internet</li>
-            <li class="fragment">No GUI interface (for those of you who are afraid of the terminal)</li>
+            <li class="fragment">No GUI interface (for those of you who are affraid of the terminal)</li>
           </ul>
           <p><small>* In my humble opinion...</small></p>
         </section>
@@ -626,7 +613,7 @@ Resetting to the latest refs/remotes/origin/trunk
         <section>
           <h2>Remote Branches</h2>
 
-          <p>To create a new branch in the remote, unfortunally you will need to run SVN commands first:</p>
+          <p>To create a new branch in the remote, unfortunately you will need to run SVN commands first:</p>
 
           <pre class="fragment"><code data-trim contenteditable>
 $ svn copy --parents \
@@ -715,7 +702,7 @@ diff-tree 74e66eb720fc209b8624f5990a2e290ea363642a~1 74e66eb720fc209b8624f5990a2
         <section>
           <h2>Remote Branches</h2>
 
-          <p>Now that we verified the URL and the ammount of commits:</p>
+          <p>Now that we verified the URL and the amount of commits:</p>
 
           <pre><code data-trim contenteditable>
 $ git svn dcommit
@@ -733,6 +720,52 @@ Resetting to the latest refs/remotes/origin/myFirstRemoteBranch
           </code></pre>
         </section>
       </section>
+      <section>
+        <section>
+          <h2>Cherry-pick</h2>
+
+          <p>Now, let's merge the remote branch into the <strong>trunk</strong></p>
+
+          <pre><code data-trim contenteditable>
+$ git log --graph \
+    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&gt;%an&lt;%Creset' \
+    --abbrev-commit
+          </code></pre>
+        </section>
+        <section>
+          <h2>Cherry-pick</h2>
+
+          <pre><code data-trim contenteditable>
+* 5acdb51 - (HEAD -> myFirstRemoteBranch-local, origin/myFirstRemoteBranch) Another remote changes (23 minutes ago) &gt;(no author)&lt;
+* b9f22e9 - Remote changes (23 minutes ago) &gt;(no author)&lt;
+* a92b319 - Create myFirstRemoteBranch (51 minutes ago) &gt;(no author)&lt;
+* 6548af9 - (origin/trunk, master) New code checked in to test the local branch (64 minutes ago) &gt;(no author)&lt;
+* bc2c9c3 - Some code (77 minutes ago) &gt;(no author)&lt;
+* 23e9b59 - Add a new file: theAnswer.txt (5 days ago) &gt;(no author)&lt;
+* 2db09e8 - Add a new message to README.md (5 days ago) &gt;(no author)&lt;
+* 90b3f0d - Some conflict for you to solve it out (5 days ago) &gt;(no author)&lt;
+* f911e85 - Project initial commit (5 days ago) &gt;(no author)&lt;
+(END)
+          </code></pre>
+        </section>
+        <section>
+          <h2>Cherry-pick</h2>
+
+          <p>Let's grab the last 2 commits ids:</p>
+
+          <ul>
+            <li>b9f22e9</li>
+            <li>5acdb51</li>
+          </ul>
+
+          <pre><code data-trim contenteditable>
+$ git log --graph \
+    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&gt;%an&lt;%Creset' \
+    --abbrev-commit
+          </code></pre>
+        </section>
+      </section>
+
 			</div>
 		</div>
 
