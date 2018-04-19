@@ -1,0 +1,73 @@
+id: 3-2.0.r11/0
+type: file
+pred: 3-2.0.r6/78
+count: 4
+text: 9 0 43 112 9507ab8f8dff0680aed6b17ac3096a10 7b44f693b62a8bbfb892a70d5918536bb2944b76 10-b/_3
+cpath: /trunk/myProject/README.md
+copyroot: 0 /
+
+PLAIN
+K 9
+README.md
+V 16
+file 3-2.0.r11/0
+K 11
+newFile.txt
+V 16
+file 2-7.0.r7/30
+K 13
+theAnswer.txt
+V 16
+file 2-5.0.r5/28
+END
+ENDREP
+id: 1-2.0.r11/335
+type: dir
+pred: 1-2.0.r7/346
+count: 6
+text: 11 202 120 0 a3af9ed05f18bf495beb5379eab0f538
+cpath: /trunk/myProject
+copyroot: 0 /
+
+PLAIN
+K 9
+myProject
+V 17
+dir 1-2.0.r11/335
+END
+ENDREP
+id: 3-1.0.r11/536
+type: dir
+pred: 3-1.0.r7/544
+count: 7
+text: 11 482 41 0 373b0a496fb7dac45512a0654fe5af39
+cpath: /trunk
+copyroot: 0 /
+
+PLAIN
+K 8
+branches
+V 17
+dir 0-1.0.r10/943
+K 4
+tags
+V 15
+dir 2-1.0.r1/66
+K 5
+trunk
+V 17
+dir 3-1.0.r11/536
+END
+ENDREP
+id: 0.0.r11/788
+type: dir
+pred: 0.0.r10/1197
+count: 11
+text: 11 672 103 0 83b419d647bfb39790b307f173483dda
+cpath: /
+copyroot: 0 /
+
+3-2.0.t10-b modify-file true false /trunk/myProject/README.md
+
+
+788 919

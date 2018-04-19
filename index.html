@@ -751,17 +751,53 @@ $ git log --graph \
         <section>
           <h2>Cherry-pick</h2>
 
-          <p>Let's grab the last 2 commits ids:</p>
-
-          <ul>
-            <li>b9f22e9</li>
-            <li>5acdb51</li>
-          </ul>
+          <p>Let's grab the last 2 commits ids and run the following command, with the oldest commit first:</p>
 
           <pre><code data-trim contenteditable>
-$ git log --graph \
-    --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&gt;%an&lt;%Creset' \
-    --abbrev-commit
+$ git checkout master
+Switched to branch 'master'
+$ git cherry-pick b9f22e9
+[master c50ef5d] Remote changes
+ Author: (no author) &gt;(no author)@484153bb-eef5-4e36-a9e2-d2a13b2eef05&lt;
+ Date: Tue Apr 17 17:23:49 2018 +0000
+ 1 file changed, 1 insertion(+)
+          </code></pre>
+        </section>
+        <section>
+          <h2>Cherry-pick</h2>
+
+          <p>And now, with the newest commit:</p>
+
+          <pre><code data-trim contenteditable>
+$ git cherry-pick 5acdb51
+[master 862ddaa] Another remote changes
+Author: (no author) &gt;(no author)@484153bb-eef5-4e36-a9e2-d2a13b2eef05&lt;
+Date: Tue Apr 17 17:23:49 2018 +0000
+1 file changed, 1 insertion(+)
+          </code></pre>
+        </section>
+        <section>
+          <h2>Cherry-pick</h2>
+
+          <p>Let's push the changes to the TRUNK</p>
+
+          <pre><code data-trim contenteditable>
+$ git svn dcommit --dry-run
+Committing to http://localhost/svn/guideRepo/trunk/myProject ...
+diff-tree c50ef5d5d8a5e791b91ec4c12537b8f93584ac82~1 c50ef5d5d8a5e791b91ec4c12537b8f93584ac82
+diff-tree 862ddaa5fe2dd5ad3d65cbc3258c3fe65c38d2e0~1 862ddaa5fe2dd5ad3d65cbc3258c3fe65c38d2e0
+$ git svn dcommit
+Committing to http://localhost/svn/guideRepo/trunk/myProject ...
+        M       README.md
+Committed r11
+        M       README.md
+r11 = 19d45fabac8466b40737b7fc89926c98798033d2 (refs/remotes/origin/trunk)
+        M       README.md
+Committed r12
+        M       README.md
+r12 = 1ea660217a5e491a8de29f0cee4091e33943ec7b (refs/remotes/origin/trunk)
+No changes between 862ddaa5fe2dd5ad3d65cbc3258c3fe65c38d2e0 and refs/remotes/origin/trunk
+Resetting to the latest refs/remotes/origin/trunk
           </code></pre>
         </section>
       </section>
