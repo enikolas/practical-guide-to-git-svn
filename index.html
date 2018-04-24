@@ -14,7 +14,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/white.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -35,15 +35,18 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>
+				<section data-background-image="img/background.png" data-background-position="top">
 					<h1>git-svn</h1>
 					<h3>A practical guide</h3>
 					<p>
 						<small>Created by <a href="http://github.com/enikolas">Everton Nikolas de Oliveira</a></small>
-					</p>
+          </p>
+          <p>
+            <small><a href="https://enikolas.github.io/practical-guide-to-git-svn/">enikolas.github.io/practical-guide-to-git-svn</a></small>
+          </p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <p>
             So you have heard about <b>git</b> 
             and all its awesome features.
@@ -57,38 +60,38 @@
         </section>
 
         <section data-background="https://i.giphy.com/12XMGIWtrHBl5e.gif">
-          <p>Your project still uses SVN...</p>
+          <p style="color: white">Your project still uses SVN...</p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <p>But there is still hope</p>
           <p class="fragment">
             We have GIT-SVN to rescue us!
           </p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <p>But what is GIT-SVN?</p>
           <p class="fragment">What does it eat?</p>
           <p class="fragment">Where does it live?</p>
           <p class="fragment">How does it reproduce?</p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <p>GIT-SVN acts as a workaround to work with git locally while the VCS server is still SVN.</p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <h2>Pure SVN</h2>
           <img data-src="img/PureSvnFlow.svg" alt="Describes a simple SVN workflow." />
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <h2>GIT-SVN</h2>
           <img data-src="img/GitSvnFlow.svg" alt="Describes a simple GIT-SVN workflow." />
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <h2>Remote commands comparison</h2>
           <table>
             <thead>
@@ -118,16 +121,16 @@
           </table>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <p>Hey, you have only showed me three commands, where is all other awesome local git commands?</p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <h2>Good question!</h2>
           <p>As I have described before, git-svn creates a local git server.</p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <p>Which means, you have access to all local git commands</p>
           <ul>
             <li class="fragment">git commit</li>
@@ -139,7 +142,7 @@
           </ul>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <h2>Pros*</h2>
           <ul>
             <li class="fragment">Better merge strategies (goodbye odd conflicts)</li>
@@ -151,7 +154,7 @@
           <p><small>* In my humble opinion...</small></p>
         </section>
 
-        <section>
+        <section data-background-image="img/background.png" data-background-position="top">
           <h2>Cons*</h2>
           <ul>
             <li class="fragment">Some workflows act different than a pure GIT environment</li>
@@ -163,22 +166,22 @@
           <p><small>* In my humble opinion...</small></p>
         </section>
 
-				<section>
+				<section data-background-image="img/background.png" data-background-position="top">
 					<h2>😴😴😴😴😴😴</h2>
 					<p class="fragment">Sorry, but wasn't this a practical guide? 🤓</p>
 				</section>
 
 				<section data-background="https://i.giphy.com/l0MYt5jPR6QX5pnqM.gif">
-					<h2>It's time for...</h2>
+					<p style="color: white">It's time for...</p>
 				</section>
 
 				<section data-background="https://i.giphy.com/yoJC2GnSClbPOkV0eA.gif">
-					<h2>The practical part</h2>
+					<p style="color: white">The practical part</p>
 				</section>
 
       <section>
-        <section>
-					<h2>Initial Setup of SVN</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+					<h2>Initial Setup of SVN</h3>
 
 					<p>
             For this guide, I'll be using a dockerised subversion server, so everyone could follow it in the same way.
@@ -193,8 +196,8 @@ $ docker-compose up
           </code></pre>
 				</section>
 
-        <section>
-          <h2>Initial Setup of SVN</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Initial Setup of SVN</h3>
 
           <p>Wait around 10min until the following command:</p>
 
@@ -217,8 +220,8 @@ Last Changed Date: 2018-04-12 16:00:01 +0000 (Thu, 12 Apr 2018)
           </pre>
         </section>
 
-        <section>
-					<h2>Initial Setup of SVN</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+					<h2>Initial Setup of SVN</h3>
 
           <p>
             Now, run the project setup script:
@@ -236,8 +239,8 @@ $ sh svnProjectSetup.sh
       </section>
       
       <section>
-				<section>
-          <h2>Checkout the code</h2>
+				<section data-background-image="img/background.png" data-background-position="top">
+          <h2>Checkout the code</h3>
           
           <p>To checkout the code, go to a new terminal console, and run the following commands:</p>
           
@@ -254,8 +257,8 @@ $ git svn clone http://localhost/svn/guideRepo \
           </code></pre>
         </section>
 
-        <section>
-          <h2>Checkout the code</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Checkout the code</h3>
           
           <p>Which might output:</p>
 
@@ -268,8 +271,8 @@ Checked out HEAD:
           </code></pre>
         </section>
         
-        <section>
-          <h2>Repository history</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Repository history</h3>
 
           <pre><code data-trim contenteditable>
 $ cd ~/git/myProject
@@ -286,8 +289,8 @@ Date:   Thu Apr 12 16:02:49 2018 +0000
         </section>
       </section>
       <section>
-        <section>
-          <h2>Checking in changes locally</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Checking in changes locally</h3>
 
           <pre><code data-trim contenteditable>
 $ echo 'Farewell, sir!' >> README.md
@@ -301,8 +304,8 @@ $ git commit -m "Add a new message to README.md"
           </code></pre>
         </section>
 
-        <section>
-          <h2>Adding new files</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Adding new files</h3>
 
           <pre><code data-trim contenteditable>
 $ echo '42' >> theAnswer.txt
@@ -317,8 +320,8 @@ $ git commit -m "Add a new file: theAnswer.txt"
         </section>
       </section>
       <section>
-        <section>
-          <h2>Pulling remote changes</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Pulling remote changes</h3>
 
           <p>To simulate a remote commit, run the following commands:</p>
 
@@ -337,8 +340,8 @@ Committed revision 3.
           </code></pre>
         </section>
 
-        <section>
-          <h2>Pulling remote changes</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Pulling remote changes</h3>
 
           <p>Now, with the fake remote commit done, let's checkout the changes to our local git-svn repo:</p>
 
@@ -347,8 +350,8 @@ $ git svn rebase
           </code></pre>
         </section>
 
-        <section>
-          <h2>Pulling remote changes</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Pulling remote changes</h3>
 
           <pre><code data-trim contenteditable>
 $ git svn rebase
@@ -373,8 +376,8 @@ rebase refs/remotes/origin/trunk: command returned error: 128
           </code></pre>
         </section>
 
-        <section>
-            <h2>Pulling remote changes</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+            <h2>Pulling remote changes</h3>
 
             <p>Ok, now we got a conflict... How great.</p>
 
@@ -382,8 +385,8 @@ rebase refs/remotes/origin/trunk: command returned error: 128
         </section>
       </section>
       <section>
-        <section>
-            <h2>Solving conflicts</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+            <h2>Solving conflicts</h3>
 
             <p>Let's take a look at the conflict, shall we?</p>
 
@@ -405,8 +408,8 @@ no changes added to commit (use "git add" and/or "git commit -a")
             </code></pre>
         </section>
 
-        <section>
-          <h2>Solving conflicts</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Solving conflicts</h3>
 
           <pre><code data-trim contenteditable>
 $ vim README.md
@@ -419,8 +422,8 @@ Farewell, sir!
           </code></pre>
         </section>
 
-        <section>
-          <h2>Solving conflicts</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Solving conflicts</h3>
 
           <pre><code data-trim contenteditable>
 Hello World!
@@ -431,8 +434,8 @@ $ git add README.md
           </code></pre>
         </section>
 
-        <section>
-          <h2>Solving conflicts</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Solving conflicts</h3>
 
           <pre><code data-trim contenteditable>
 $ git status
@@ -447,8 +450,8 @@ Changes to be committed:
           </code></pre>
         </section>
 
-        <section>
-          <h2>Solving conflicts</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Solving conflicts</h3>
 
           <pre><code data-trim contenteditable>
 $ git rebase --continue
@@ -461,8 +464,8 @@ nothing to commit, working directory clean
         </section>
       </section>
       <section>
-        <section>
-          <h2>Pushing the changes</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Pushing the changes</h3>
 
           <p>The <code>git commit</code> only checks in the code locally. To push your changes to the remote server, you need to run:</p>
 
@@ -474,8 +477,8 @@ diff-tree 25887c98a3644b67786126cf1eeb75608a975dc6~1 25887c98a3644b67786126cf1ee
           </code></pre>
         </section>
 
-        <section>
-          <h2>Pushing the changes</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Pushing the changes</h3>
 
           <p>After checking if everything is OK, <span class="fragment highlight-red">and only then</span>, run the following command:</p>
 
@@ -496,8 +499,8 @@ Resetting to the latest refs/remotes/origin/trunk
         </section>
       </section>
       <section>
-        <section>
-          <h2>Local Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Local Branches</h3>
 
           <p>You can work with local branches, as git already allows you to do:</p>
 
@@ -516,8 +519,8 @@ $ git commit -m "New code checked in to test the local branch"
           </code></pre>
         </section>
 
-        <section>
-          <h2>Local Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Local Branches</h3>
 
           <p>But look that when you try to check in to the remote server, it will send to the trunk.</p>
 
@@ -528,8 +531,8 @@ diff-tree 096ee3ce2036cc94639347f0353fea9ac952dbb2~1 096ee3ce2036cc94639347f0353
           </code></pre>
         </section>
 
-        <section>
-          <h2>Local Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Local Branches</h3>
 
           <p>Before check in the code, let's add one more layer of difficulty, and simulate a remote changes in the meanwhile.</p>
 
@@ -549,8 +552,8 @@ Committed revision 6.
           </code></pre>
         </section>
 
-        <section>
-          <h2>Local Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Local Branches</h3>
 
           <p>Now, first we should update the master:</p>
 
@@ -565,8 +568,8 @@ Fast-forwarded master to refs/remotes/origin/trunk.
           </code></pre>
         </section>
 
-        <section>
-          <h2>Local Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Local Branches</h3>
 
           <p>And just then, let's merge the branch with the local branch:</p>
 
@@ -589,8 +592,8 @@ Deleted branch myLocalBranch (was cc7f734).
           </code></pre>
         </section>
 
-        <section>
-          <h2>Local Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Local Branches</h3>
 
           <p>Before checking in the code, the usual verification, and then, check in it:</p>
 
@@ -610,8 +613,8 @@ Resetting to the latest refs/remotes/origin/trunk
         </section>
       </section>
       <section>
-        <section>
-          <h2>Remote Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Remote Branches</h3>
 
           <p>To create a new branch in the remote, unfortunately you will need to run SVN commands first:</p>
 
@@ -625,8 +628,8 @@ Committed revision 8.
           </code></pre>
         </section>
 
-        <section>
-          <h2>Remote Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Remote Branches</h3>
 
           <p>Let's checkout the remote branch:</p>
 
@@ -640,8 +643,8 @@ r8 = a92b319ec08e13ccc940634967d542a8b5e3aa85 (refs/remotes/origin/myFirstRemote
           </code></pre>
         </section>
 
-        <section>
-          <h2>Remote Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Remote Branches</h3>
 
           <p>Let's checkout the remote branch:</p>
 
@@ -653,8 +656,8 @@ $ git branch -a
           </code></pre>
         </section>
 
-        <section>
-          <h2>Remote Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Remote Branches</h3>
 
           <p>Let's checkout the remote branch:</p>
 
@@ -667,8 +670,8 @@ master
           </code></pre>
         </section>
 
-        <section>
-          <h2>Remote Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Remote Branches</h3>
 
           <p>Add some code changes:</p>
 
@@ -686,8 +689,8 @@ $ git commit -m 'Another remote changes'
           </code></pre>
         </section>
 
-        <section>
-          <h2>Remote Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Remote Branches</h3>
 
           <p>Let's push the changes to the remote branch:</p>
 
@@ -699,8 +702,8 @@ diff-tree 74e66eb720fc209b8624f5990a2e290ea363642a~1 74e66eb720fc209b8624f5990a2
           </code></pre>
         </section>
 
-        <section>
-          <h2>Remote Branches</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Remote Branches</h3>
 
           <p>Now that we verified the URL and the amount of commits:</p>
 
@@ -721,8 +724,8 @@ Resetting to the latest refs/remotes/origin/myFirstRemoteBranch
         </section>
       </section>
       <section>
-        <section>
-          <h2>Cherry-pick</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Cherry-pick</h3>
 
           <p>Now, let's merge the remote branch into the <strong>trunk</strong></p>
 
@@ -732,8 +735,8 @@ $ git log --graph \
     --abbrev-commit
           </code></pre>
         </section>
-        <section>
-          <h2>Cherry-pick</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Cherry-pick</h3>
 
           <pre><code data-trim contenteditable>
 * 5acdb51 - (HEAD -> myFirstRemoteBranch-local, origin/myFirstRemoteBranch) Another remote changes (23 minutes ago) &gt;(no author)&lt;
@@ -748,8 +751,8 @@ $ git log --graph \
 (END)
           </code></pre>
         </section>
-        <section>
-          <h2>Cherry-pick</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Cherry-pick</h3>
 
           <p>Let's grab the last 2 commits ids and run the following command, with the oldest commit first:</p>
 
@@ -763,8 +766,8 @@ $ git cherry-pick b9f22e9
  1 file changed, 1 insertion(+)
           </code></pre>
         </section>
-        <section>
-          <h2>Cherry-pick</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Cherry-pick</h3>
 
           <p>And now, with the newest commit:</p>
 
@@ -776,8 +779,8 @@ Date: Tue Apr 17 17:23:49 2018 +0000
 1 file changed, 1 insertion(+)
           </code></pre>
         </section>
-        <section>
-          <h2>Cherry-pick</h2>
+        <section data-background-image="img/background.png" data-background-position="top">
+          <h2>Cherry-pick</h3>
 
           <p>Let's push the changes to the TRUNK</p>
 
@@ -801,10 +804,10 @@ Resetting to the latest refs/remotes/origin/trunk
           </code></pre>
         </section>
       </section>
-      <section>
+      <section data-background-image="img/background.png" data-background-position="top">
         <h2>Questions?</h2>
       </section>
-      <section>
+      <section data-background-image="img/background.png" data-background-position="top">
         <h2>Contacts</h2>
         <ul>
           <li>Linkedin: <a href="https://www.linkedin.com/in/enikolas">/in/enikolas</a></li>
@@ -813,7 +816,7 @@ Resetting to the latest refs/remotes/origin/trunk
           <li>E-mail: <a href="maito://eoliveira@daitangroup.com">eoliveira@daitangroup.com</a></li>
         </ul>
       </section>
-      <section>
+      <section data-background-image="img/background.png" data-background-position="top">
         <h2>Thanks</h2>
       </section>
 
@@ -828,6 +831,12 @@ Resetting to the latest refs/remotes/origin/trunk
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+        width: 1437,
+	      height: 1074,
+        margin: 0.1,
+        minScale: 0.2,
+	      maxScale: 1.8,
+        pdfMaxPagesPerSlide: 1,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
